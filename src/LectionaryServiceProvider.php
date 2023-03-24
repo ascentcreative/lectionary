@@ -26,7 +26,7 @@ class LectionaryServiceProvider extends ServiceProvider
 
     $this->loadViewsFrom(__DIR__.'/../resources/views', 'lectionary');
 
-    $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+    $this->loadRoutesFrom(__DIR__.'/../routes/lectionary-web.php');
 
     $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
