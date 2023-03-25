@@ -16,7 +16,7 @@ return new class extends Migration
     {
         Schema::create('lectionary_weeks', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
+            $table->string('title', 191);
             $table->timestamps();
         });
 
@@ -110,7 +110,7 @@ return new class extends Migration
             $table->id();
             $table->date('date')->index();
             $table->integer('week_id')->index();
-            $table->char('year')->index();
+            $table->char('year', 1)->index();
             $table->timestamps();
 
             $table->index(['date', 'week_id', 'year']);

@@ -29,6 +29,7 @@ class CreateLectionary extends Command
      */
     public function handle()
     {
+        echo "Populating Lectionary Readings\n";
         BibleRef::where('biblerefable_type', 'AscentCreative\Lectionary\Models\Week')->delete();
         $this->buildbiblerefs();
 
