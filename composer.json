@@ -13,7 +13,7 @@
     "matthiasmullie/minify": "^1.3",
     "kalnoy/nestedset": "^6.0",
     "doctrine/dbal": "^3.0",
-    "ascentcreative/bibleref": "dev-dev",
+    "ascentcreative/bibleref": "dev-dev"
   },
   "autoload": {
     "psr-4": {
