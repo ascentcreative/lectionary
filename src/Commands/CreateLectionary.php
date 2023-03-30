@@ -33,10 +33,10 @@ class CreateLectionary extends Command
         BibleRef::where('biblerefable_type', 'AscentCreative\Lectionary\Models\Week')->delete();
         $this->buildbiblerefs();
 
-        Date::truncate();
-        for ($i = 2015; $i < 2100; $i++) {
-			$this->createLectionaryDates($i);
-		}
+        // Date::truncate();
+        // for ($i = 2015; $i < 2100; $i++) {
+		// 	$this->createLectionaryDates($i);
+		// }
 
         return 0;
 
@@ -577,7 +577,8 @@ class CreateLectionary extends Command
 		));
 		
 		$this->createReadings(14, 'B', array(
-				"1 Samuel 3:1-11-20",
+				"1 Samuel 3:1-10",
+                "1 Samuel 3:11-20",
 				"Psalm 139:1-6",
 				"Psalm 139:13-18",
 				"1 Corinthians 6:12-20",
@@ -780,7 +781,7 @@ class CreateLectionary extends Command
 				"1 Kings 8:22-23",
 				"1 Kings 8:41-43",
 				"Psalm 96:1-9",
-				"Galatians 1:1-12".
+				"Galatians 1:1-12",
 				"Luke 7:1-10"
 		));
 		
@@ -874,7 +875,7 @@ class CreateLectionary extends Command
 				"Psalm 27",
 				"Philippians 3:17-4:1",
 				"Luke 13:31-35",
-				"Luke 9:28-26"
+				"Luke 9:28-36"
 		));
 		
 		
@@ -1057,17 +1058,6 @@ class CreateLectionary extends Command
 		));
 		
 
-		$this->createReadings(37, '*', array(
-				"Job 14:1-14",
-				"Lamentations 3:1-9",
-				"Lamentations 3:19-24",
-				"Psalm 31:1-4",
-				"Psalm 31:15-16",
-				"1 Peter 4:1-8",
-				"Matthew 27:57-66",
-				"John 19:38-42"
-		));
-		
 		$this->createReadings(38, '*', array(
 				"Genesis 1:1-2:4a",
 				"Genesis 7:1-5",
@@ -1449,8 +1439,7 @@ class CreateLectionary extends Command
 		));
 		
 		$this->createReadings(51, 'C', array(
-				"1 Kings 18:20-21",
-				"1 Kings 18:22-39",
+				"1 Kings 18:20-39",
 				"Psalm 96",
 				"Galatians 1:1-12",
 				"Luke 7:1-10",
@@ -1500,8 +1489,8 @@ class CreateLectionary extends Command
 				"Psalm 116:12-19",
 				"Matthew 9:18-26",
 				"Romans 5:1-8",
-				"Matthew 9:23",
 				"Matthew 9:35—10:8",
+                "Matthew 10:9-23",
 				"Exodus 19:2-8",
 				"Psalm 100"
 		));
@@ -1534,7 +1523,7 @@ class CreateLectionary extends Command
 				"Genesis 21:8-21",
 				"Psalm 86:1-10",
 				"Psalm 86:16-17",
-				"Romans 6:1-11",
+				"Romans 6:1b-11",
 				"Matthew 10:24-39",
 				"Jeremiah 20:7-13",
 				"Psalm 69:7-18"
@@ -1586,6 +1575,8 @@ class CreateLectionary extends Command
 				"Psalm 130",
 				"2 Corinthians 8:7-15",
 				"Mark 5:21-43",
+                "Wisdom of Solomon 1:13-15",
+                "Wisdom of Solomon 2:23-24",
 				"Lamentations 3:22-33",
 				"Psalm 30"
 		));
@@ -1685,7 +1676,7 @@ class CreateLectionary extends Command
 				"Matthew 13:24-30",
 				"Matthew 13:36-43",
                 "Wisdom of Solomon 12:13",
-                "Wisdom of Solomon 16-19",
+                "Wisdom of Solomon 12:16-19",
 				"Isaiah 44:6-8",
 				"Psalm 86:11-17"
 		));
@@ -1716,7 +1707,7 @@ class CreateLectionary extends Command
 		$this->createReadings(59, 'A', array(
 				"Genesis 29:15-28",
 				"Psalm 105:1-11",
-				"Psalm 105:45bb",
+				"Psalm 105:45b",
 				"Psalm 128",
 				"Romans 8:26-39",
 				"Matthew 13:31-33",
@@ -1790,7 +1781,7 @@ class CreateLectionary extends Command
 				"Genesis 37:12-28",
 				"Psalm 105:1-6",
 				"Psalm 105:16-22",
-				"Psalm 105:45",
+				"Psalm 105:45b",
 				"Romans 10:5-15",
 				"Matthew 14:22-33",
 				"1 Kings 19:9-18",
@@ -1913,6 +1904,7 @@ class CreateLectionary extends Command
 		
 		$this->createReadings(64, 'B', array(
 				"Song of Solomon 2:8-13",
+                "Psalm 15",
 				"Psalm 45:1-2",
 				"Psalm 45:6-9",
 				"James 1:17-27",
@@ -1966,7 +1958,7 @@ class CreateLectionary extends Command
 				"Jeremiah 18:1-11",
 				"Psalm 139:1-6",
 				"Psalm 139:13-18",
-				"Philemon 1:1-21",
+				"Philemon 1-21",
 				"Luke 14:25-33",
 				"Deuteronomy 30:15-20",
 				"Psalm 1"
@@ -1994,19 +1986,16 @@ class CreateLectionary extends Command
                 "Mark 8:27-38",
                 "Isaiah 50:4-9a",
                 "Psalm 116:1-9",
-				// "1 Timothy 1:12-17",
-				// "Luke 15:1-10",
-				// "Exodus 32:7-14",
-				// "Psalm 51:1-10"
 		));
 		
 		$this->createReadings(66, 'C', array(
 				"Jeremiah 4:11-12",
 				"Jeremiah 4:22-28",
 				"Psalm 14",
-				"Mark 8:27-38",
-				"Isaiah 50:4-9",
-				"Psalm 116:1-9"
+				"1 Timothy 1:12-17",
+				"Luke 15:1-10",
+				"Exodus 32:7-14",
+				"Psalm 51:1-10"
 		));
 		
 		
@@ -2080,7 +2069,7 @@ class CreateLectionary extends Command
 				"Psalm 91:14-16",
 				"1 Timothy 6:6-19",
 				"Luke 16:19-31",
-				"Amos 6:1",
+				"Amos 6:1a",
 				"Amos 6:4-7",
 				"Psalm 146"
 		));
@@ -2293,7 +2282,7 @@ class CreateLectionary extends Command
 		));
 		
 		$this->createReadings(76, 'C', array(
-				"Haggai 1:15-2:9",
+				"Haggai 1:15b-2:9",
 				"Psalm 145:1-5",
 				"Psalm 145:17-21",
 				"Psalm 98",
@@ -2348,8 +2337,6 @@ class CreateLectionary extends Command
 				"Psalm 100",
 				"Ephesians 1:15-23",
 				"Matthew 25:31-46",
-				"Ezekiel 34:11-16",
-				"Ezekiel 34:20-24",
 				"Psalm 95:1-7a"
 		));
 		
