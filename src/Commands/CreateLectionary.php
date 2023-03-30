@@ -33,10 +33,10 @@ class CreateLectionary extends Command
         BibleRef::where('biblerefable_type', 'AscentCreative\Lectionary\Models\Week')->delete();
         $this->buildbiblerefs();
 
-        // Date::truncate();
-        // for ($i = 2015; $i < 2100; $i++) {
-		// 	$this->createLectionaryDates($i);
-		// }
+        Date::truncate();
+        for ($i = 2015; $i < 2100; $i++) {
+			$this->createLectionaryDates($i);
+		}
 
         return 0;
 
