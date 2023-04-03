@@ -17,14 +17,24 @@ class Week extends Model
 
 
     protected $hidden = ['id', 'created_at', 'updated_at'];
-
-
-    public function readings($year=null) {
+   
+    public function readings($year) {
         $q = $this->morphMany(BibleRef::class, 'biblerefable');
         if($year) {
             $q->whereIn('biblerefable_key', [$year, '*']);
         }
         return $q;
+    }
+
+
+    public function dates() {
+        return $this->hasMany(Date::class);
+    }
+
+    public function scopeForDate($q, $date) {
+        $q->whereHas('dates', function($q) use ($date) {
+            $q->where('date', $date);
+        });
     }
     
 

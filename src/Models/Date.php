@@ -13,7 +13,7 @@ class Date extends Model
     protected $table = 'lectionary_dates';
     protected $fillable = ['date', 'week_id', 'year'];
 
-    protected $appends = ['week', 'readings'];
+    // protected $appends = ['weeks'];//, 'readings'];
     protected $hidden = ['id', 'created_at', 'updated_at', 'week_id'];
 
 
@@ -28,23 +28,6 @@ class Date extends Model
             'date'=>$date,
             'year'=>$year
         ]);
-    }
-
-
-    public function week() {
-        return $this->belongsTo(Week::class);
-    }
-
-    public function getWeekAttribute() {
-        return $this->week()->first();
-    }
-
-    public function readings() {
-        return $this->week->readings($this->year)->get();
-    }
-
-    public function getReadingsAttribute() {
-        return $this->readings();
     }
 
 

@@ -16,10 +16,22 @@ use AscentCreative\BibleRef\Models\BibleRef;
 
 class LectionaryDataController extends Controller {
 
-    public function fordate($date) {
+    public function fordate($dateStr) {
        
         // do we have this date listed:
-        $date = Date::where("date", $date)->first();
+        $date = Date::where("date", $dateStr)->first();
+        if($date) {
+            $weeks = Week::forDate($dateStr)->get();
+
+            foreach($weeks as $week) {
+                // dump($date->year);
+                $week->readings = $week->readings($date->year)->get();
+            }
+            // dd($weeks);
+
+            $date->weeks = $weeks;
+
+        }
 
         return response()->json($date);
 
