@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Model;
 use AscentCreative\CMS\Bible\BibleReferenceParser;
 use AscentCreative\CMS\Bible\Excpetions\BibleReferenceParserException;
 
+use AscentCreative\Lectionary\Models\Week;
+
 
 use AscentCreative\Lectionary\Lectionary;
 
@@ -20,6 +22,11 @@ class LectionaryDataController extends Controller {
        $data = Lectionary::forDate($dateStr);
         return response()->json($data);
 
+    }
+
+    public function forweek(Week $week, $year) {
+        $data = Lectionary::forWeek($week, $year);
+        return response()->json($data);
     }
 
 

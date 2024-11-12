@@ -7,20 +7,24 @@ use Illuminate\Database\Eloquent\Model;
 
 use AscentCreative\BibleRef\Models\BibleRef;
 
+use AscentCreative\CMS\Traits\Autocompletable;
+
 class Week extends Model
 {
 
-    use HasFactory;
+    use HasFactory, Autocompletable;
 
     protected $table = 'lectionary_weeks';
     protected $fillable = ['title'];
 
+    protected $autocomplete_search = ['title'];
+
 
     protected $hidden = ['id', 'created_at', 'updated_at'];
    
-    public function readings($year) {
+    public function readings($year=null) {
         $q = $this->morphMany(BibleRef::class, 'biblerefable');
-        if($year) {
+        if($year && $year != '*') {
             $q->whereIn('biblerefable_key', [$year, '*']);
         }
         return $q;
